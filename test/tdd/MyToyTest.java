@@ -5,7 +5,6 @@
  */
 package tdd;
 
-import com.sun.corba.se.impl.io.TypeMismatchException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import static util.MyToys.cF;   //lát hồi xài hàm static không cần MyToys
