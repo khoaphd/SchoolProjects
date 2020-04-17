@@ -26,7 +26,7 @@ public class MyToyTest {
     //Lúc đó NetBeans ném màu xanh khi ổn, đỏ khi có vấn đề
     
     @Test
-    public void testSuccessfulCases() {
+    public void testSuccessfulLower10Cases() {
         assertEquals(1, cF(0));
         assertEquals(2, cF(2));
         assertEquals(6, cF(3));
@@ -38,15 +38,29 @@ public class MyToyTest {
                                     //có đỏ, kiểm tra code
     }
     
+    @Test
+    public void testSuccessfulGreater10Cases() {
+        assertEquals(3_628_800, cF(10));
+        assertEquals(39_916_800, cF(11));
+    }
+    
     //Ngoại lệ Exception là 1 thứ không phải là value để ước lượng
     //Vậy thì không thể assert được, vì nó cần phải có value để so sánh
     //Xài thêm kĩ thuật bắt ngoại lệ, coi ngoại lệ xảy ra giống
     //như mình kì vọng không
     
     @Test(expected = IllegalArgumentException.class)
-    public void testExceptionCases() {
+    public void testExceptionNegativeCases() {
         //Không có value để assert do hàm cF() ném ra ngoại lệ
         cF(-5);
+        cF(-100);
+        cF(-1);
+    }
+    
+    @Test(expected = IllegalArgumentException.class)
+    public void testExceptionUpperBoundCases() {
+        //Không có value để assert do hàm cF() ném ra ngoại lệ
+        cF(16);
         cF(100);
     }
 }
