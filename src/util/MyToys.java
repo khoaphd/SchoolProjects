@@ -18,14 +18,24 @@ public class MyToys {
     public static long cF(int n) {
         if (n < 0 || n > 15)
             throw new IllegalArgumentException("Sorry, n must be >= 0");
-        if (n == 0)
+        if (n == 0 || n == 1)
             return 1;
-        //phần còn lại là hợp lệ, tính bình thường
-        long product = 1;
-        for (int i = 1; i <= n; i++) {
-            product *= i;
-        }
-        return product;
+        return cF(n - 1) * n;
+        
+        //stack rất nhiều
+        
+        //Tối ưu code bằng thuật toán đệ quy
+        //Búp bê Nga -> mở con búp bê, thấy có con nhỏ hơn bên trong,
+        //mở con nhỏ hơn, thấy....
+        //đệ quy - recursion - gọi lại chính mình ở một quy mô nhỏ hơn
+        //5! = 4! x 5; 4! = 3! x 4;...
+        
+//        //phần còn lại là hợp lệ, tính bình thường
+//        long product = 1;
+//        for (int i = 1; i <= n; i++) {
+//            product *= i;
+//        }
+//        return product;
     }
 }
 
